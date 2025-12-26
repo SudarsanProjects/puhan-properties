@@ -6,6 +6,10 @@ services:
     plan: free # You can change this to a paid plan for more resources
     buildCommand: "npm install"
     startCommand: "npm start"
+    disks:
+      - name: puhan-db
+        mountPath: /var/data
+        sizeGB: 1
     envVars:
       - key: NODE_VERSION
         value: "20" # Specify a recent, stable Node.js version

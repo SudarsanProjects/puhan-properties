@@ -17,8 +17,14 @@ app.use(bodyParser.json());
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Database setup
-const dbPath = path.join(__dirname, 'database', 'database.sqlite');
+const fs = require('fs');
+
+// Set up the data directory
+const dataDir = process.env.RENDER ? '/var/data' : path.join(__dirname, 'database');
+if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+}
+const dbPath = path.join(dataDir, 'database.sqlite');
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Error opening database', err.message);
