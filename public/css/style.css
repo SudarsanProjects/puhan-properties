@@ -1,0 +1,368 @@
+/* --- VARIABLES & GLOBAL STYLES --- */
+:root {
+    --primary-color: #0B1F3A; /* Deep Navy Blue */
+    --secondary-color: #F5F5F5; /* Off-White / Light Grey */
+    --accent-color: #C9A24D; /* Gold / Champagne */
+    --text-color: #222222; /* Dark Grey / Black */
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    background-color: #FFFFFF;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: 2px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* --- HEADER --- */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: var(--heading-font);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.call-to-action .btn {
+    padding: 10px 20px;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    background: linear-gradient(rgba(11, 31, 58, 0.8), rgba(11, 31, 58, 0.8)), url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1992&auto=format&fit=crop') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 120px 0;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.hero-cta .btn {
+    margin: 0 10px;
+}
+.hero-cta .btn-secondary {
+    color: #fff;
+    border-color: #fff;
+}
+.hero-cta .btn-secondary:hover {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+
+/* --- SECTIONS --- */
+.services, .areas-served, .why-choose-us, .page-content, .map-section {
+    padding: 80px 0;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.service-cards, .area-cards, .area-focus-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.card {
+    background: var(--secondary-color);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card h3, .card h4 {
+    margin-bottom: 15px;
+}
+
+.why-choose-us {
+    background-color: var(--secondary-color);
+}
+
+.why-choose-us ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.why-choose-us ul li {
+    margin-bottom: 15px;
+}
+
+/* --- PAGE HEADER --- */
+.page-header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 42px;
+    color: #fff;
+    margin: 0;
+}
+.page-header p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.page-content ul, .page-content ol {
+    line-height: 1.8;
+}
+
+.cta-buttons {
+    margin-top: 30px;
+}
+.cta-buttons .btn {
+    margin-right: 15px;
+}
+
+/* --- CONTACT PAGE --- */
+.contact-container {
+    display: flex;
+    gap: 50px;
+}
+.contact-form {
+    flex: 2;
+}
+.contact-details {
+    flex: 1;
+    background: var(--secondary-color);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.form-group label span {
+    color: red;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--body-font);
+}
+
+.form-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 50px 0 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-about, .footer-links, .footer-contact {
+    flex: 1;
+    min-width: 250px;
+}
+
+footer h3 {
+    color: var(--accent-color);
+    font-family: var(--heading-font);
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: #fff;
+}
+footer a:hover {
+    color: var(--accent-color);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+/* --- WHATSAPP FLOAT BUTTON --- */
+.whatsapp-fl-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+.whatsapp-fl-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 5px 10px;
+    }
+    .call-to-action {
+        margin-top: 15px;
+    }
+
+    .service-cards, .area-cards, .area-focus-cards {
+        flex-direction: column;
+    }
+    .contact-container {
+        flex-direction: column;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+    }
+}
