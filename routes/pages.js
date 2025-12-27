@@ -10,7 +10,7 @@ const pool = new Pool({
 
 // Home page
 router.get('/', (req, res) => {
-    res.render('home', { title: 'Puhan Properties - Trusted Property Dealer in Mayur Vihar' });
+    res.render('home', { title: 'Puhan Properties - Trusted Property Dealer in Mayur Vihar Phase-1 and New Ashok Nagar' });
 });
 
 // Buy page
