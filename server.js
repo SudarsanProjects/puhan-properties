@@ -12,7 +12,7 @@ const pool = new Pool({
   ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
 });
 
-// Function to set up the database table
+// Function to set up the database table with retry logic
 async function setupDatabase() {
   const setupQuery = `
     CREATE TABLE IF NOT EXISTS enquiries (
@@ -24,15 +24,27 @@ async function setupDatabase() {
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
   `;
-  try {
-    const client = await pool.connect();
-    await client.query(setupQuery);
-    console.log('Database table "enquiries" is ready.');
-    client.release();
-  } catch (err) {
-    console.error('Error setting up the database:', err.stack);
-    // Exit the process if the database cannot be set up
-    process.exit(1);
+  
+  const maxRetries = 10;
+  const retryDelay = 5000; // 5 seconds
+
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      const client = await pool.connect();
+      await client.query(setupQuery);
+      console.log('Database table "enquiries" is ready.');
+      client.release();
+      return; // Success, exit the function
+    } catch (err) {
+      console.error('Error setting up the database (attempt ' + (i + 1) + '):', err.message);
+      if (i < maxRetries - 1) {
+        console.log(`Retrying in ${retryDelay / 1000} seconds...`);
+        await new Promise(res => setTimeout(res, retryDelay));
+      } else {
+        console.error('All database connection attempts failed.');
+        process.exit(1);
+      }
+    }
   }
 }
 
