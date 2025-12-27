@@ -1,0 +1,175 @@
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Restore direct navigation menu styles */
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+}
+
+nav ul li a:hover {
+    color: #fff;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.call-to-action .btn {
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: #fff;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+.call-to-action .btn:hover {
+    background-color: var(--primary-color);
+}
+
+/* Modern button styles */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    border: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #00f2fe, #4facfe);
+}
+
+/* Revert Submit Enquiry button color to previous state */
+.btn-secondary {
+    background: linear-gradient(90deg, #43e97b, #38f9d7);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(90deg, #38f9d7, #43e97b);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern logo section styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo span {
+    font-family: var(--heading-font);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo:hover img {
+    transform: rotate(-5deg);
+}
+
+.logo:hover span {
+    color: var(--accent-color);
+}
+
+/* Responsive styles for mobile view */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        text-align: left;
+        margin: 0;
+    }
+}
+
+/* Remove hamburger menu styles */
+.hamburger {
+    display: none;
+}

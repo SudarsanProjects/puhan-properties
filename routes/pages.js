@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+const { Pool } = require('pg');
 
-const dbPath = path.join(__dirname, '..', 'database', 'database.sqlite');
+// This will automatically use the DATABASE_URL environment variable on Render
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
+});
 
 // Home page
 router.get('/', (req, res) => {
@@ -36,30 +39,22 @@ router.get('/contact', (req, res) => {
 });
 
 // Handle contact form submission
-router.post('/contact', (req, res) => {
+router.post('/contact', async (req, res) => {
     const { name, mobile, email, message } = req.body;
 
     if (!name || !mobile) {
         return res.render('contact', { title: 'Contact Us | Puhan Properties', message: 'Name and Mobile are required.' });
     }
 
-    const db = new sqlite3.Database(dbPath, (err) => {
-        if (err) {
-            console.error('Error opening database', err.message);
-            return res.render('contact', { title: 'Contact Us | Puhan Properties', message: 'An error occurred. Please try again later.' });
-        }
-    });
-
-    const sql = `INSERT INTO enquiries (name, mobile, email, message) VALUES (?, ?, ?, ?)`;
-    db.run(sql, [name, mobile, email, message], function(err) {
-        if (err) {
-            console.error('Error inserting data', err.message);
-            return res.render('contact', { title: 'Contact Us | Puhan Properties', message: 'An error occurred. Please try again later.' });
-        }
+    const sql = `INSERT INTO enquiries (name, mobile, email, message) VALUES ($1, $2, $3, $4)`;
+    
+    try {
+        await pool.query(sql, [name, mobile, email, message]);
         res.render('contact', { title: 'Contact Us | Puhan Properties', message: 'Thank you for your enquiry! We will get back to you soon.' });
-    });
-
-    db.close();
+    } catch (err) {
+        console.error('Error inserting data', err.stack);
+        res.render('contact', { title: 'Contact Us | Puhan Properties', message: 'An error occurred. Please try again later.' });
+    }
 });
 
 module.exports = router;

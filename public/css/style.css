@@ -372,3 +372,49 @@ footer a:hover {
         gap: 10px; /* Adds spacing between buttons */
     }
 }
+
+/* Separate CSS for Submit Enquiry button */
+.submit-enquiry-btn {
+    background: linear-gradient(90deg, #ffcc00, #ff9900); /* Modern yellow to orange gradient */
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-enquiry-btn:hover {
+    background: linear-gradient(90deg, #ff9900, #ffcc00); /* Reverse gradient on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.submit-enquiry-btn:active {
+    transform: scale(0.95);
+}
+
+/* CSS for btn-enquiry class */
+.btn-enquiry {
+    background: linear-gradient(90deg, #ffeb3b, #ffc107); /* Modern yellow gradient */
+    color: #000;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-enquiry:hover {
+    background: linear-gradient(90deg, #ffc107, #ffeb3b); /* Reverse gradient on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.btn-enquiry:active {
+    transform: scale(0.95);
+}
