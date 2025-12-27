@@ -155,7 +155,9 @@ nav ul li a:hover {
 
     nav ul {
         display: flex;
-        flex-direction: column;
+        flex-direction: row; /* Change to horizontal layout */
+        justify-content: center; /* Center align the items */
+        gap: 10px; /* Add spacing between items */
         width: 100%;
         background: none;
         box-shadow: none;
@@ -164,8 +166,16 @@ nav ul li a:hover {
     }
 
     nav ul li {
-        text-align: left;
-        margin: 0;
+        text-align: center; /* Center align text */
+        margin: 0; /* Remove any extra margin */
+    }
+
+    /* Center align the call-to-action button in mobile view */
+    .call-to-action {
+        display: flex;
+        justify-content: center; /* Center align the button */
+        width: 100%;
+        margin-top: 10px; /* Add spacing from other elements */
     }
 }
 
